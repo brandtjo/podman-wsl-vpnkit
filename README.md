@@ -110,6 +110,32 @@ DOCKER=podman ./build.sh fedora
 wsl.exe -d wsl-vpnkit --cd /app wsl-vpnkit
 ```
 
+## Usage with Podman on Windows
+1. If not already present, install the [Podman CLI](https://github.com/containers/podman/releases) (the Podman Desktop UI may be installed after this guide). You do not have to init a machine, we will use a custom image to setup a podman machine.
+2. Downlaod the latest build from [here](https://github.com/brandtjo/podman-wsl-vpnkit/releases).
+3. Open a Powershell terminal and move to the download directory, then execute: 
+```powershell
+podman machine init podman-vpnkit --image-path .\podman-wsl-vpnkit.tar.gz --rootful
+```
+4. Start the podman machine with:
+```powershell
+podman machine start podman-vpnkit 
+```
+5. If your host machine is running behind a corporate proxy, add environment variables in `/etc/environment` inside the podman-vpnkit machine:
+```shell
+# example proxy configuration, where traffic to the corporate proxy is routed through the host machine on port 9000
+http_proxy="http://host.containers.internal:9000"
+https_proxy="http://host.containers.internal:9000"
+```
+
+6. Start using the podman command from powershell or from within the wsl machine. Test it for example with:
+```powershell
+# start a container reachable from host on port 8040
+podman run --name my-nginx -d -p 8040:80 nginx
+```
+
+7. If something does not work, here's a potatoe for you: 🥔
+
 ## Troubleshooting
 
 ### Notes
