@@ -115,7 +115,7 @@ wsl.exe -d wsl-vpnkit --cd /app wsl-vpnkit
 2. Downlaod the latest build from [here](https://github.com/brandtjo/podman-wsl-vpnkit/releases).
 3. Open a Powershell terminal and move to the download directory, then execute: 
 ```powershell
-podman machine init podman-vpnkit --image-path .\podman-wsl-vpnkit.tar.gz --rootful
+podman machine init podman-vpnkit --image-path .\podman-vpnkit.tar.gz --rootful
 ```
 4. Start the podman machine with:
 ```powershell

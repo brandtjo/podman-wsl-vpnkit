@@ -4,8 +4,8 @@
 # ./build.sh
 
 : "${DOCKER:=docker}"   # docker/podman command  (default: docker)
-DUMP=wsl-vpnkit.tar.gz  # exported rootfs file
-TAG_NAME=wslvpnkit      # build tag
+DUMP=podman-vpnkit.tar.gz  # exported rootfs file
+TAG_NAME=podmanvpnkit      # build tag
 BASE_DISTRO=$1
 
 # build
